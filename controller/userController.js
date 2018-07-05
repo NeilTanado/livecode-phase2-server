@@ -35,8 +35,8 @@ module.exports ={
     .then(dataUserLogin=>{
       var cekPassword = bcrypt.compareSync(req.body.password, dataUserLogin.password);
       if(cekPassword===true){
-        var token = jwt.sign({id:dataUserLogin.id,name:dataUserLogin.name,email:dataUserLogin.email},'secret');
-        var userId = dataUserLogin.id;
+        var token = jwt.sign({id:dataUserLogin._id,name:dataUserLogin.name,email:dataUserLogin.email},'secret');
+        var userId = dataUserLogin._id;
         res.status(200).json({
           message:'sukses login',
           token,userId

@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 module.exports ={
 
   createArticle:(req,res)=>{
-    console.log(req);
+    console.log(req.body);
     var decoded = jwt.verify(req.headers.token, 'secret');
     var newArticle = new Article({
       image : req.file.imageURL,
